@@ -1,9 +1,8 @@
-const API_URL = "https://automatic-adventure-5g9gqvxwgpw6c7x4r-8000.app.github.dev";
+const API_URL = "localhost/docs";
 
 
 async function loadAthletes() {
     try {
-        const response = await fetch(`${API_URL}/api/athletes`);
 
         if (!response.ok) {
             throw new Error("Failed to load athletes");
