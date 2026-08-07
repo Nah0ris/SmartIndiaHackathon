@@ -122,9 +122,15 @@ async function stopSession() {
     });
 
     stopPolling();
+
     sessionStatus.textContent = "Session Stopped";
     cameraStatus.textContent = "Camera is off";
     cameraFeed.src = "";
+
+    // Go to result page with the selected athlete and test
+    window.location.href =
+      `result.html?athlete=${athleteId}&test=${currentTest}`;
+
   } catch (error) {
     console.error(error);
   }

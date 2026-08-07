@@ -1,9 +1,8 @@
 const API_URL = "http://localhost:8000";
 
 async function loadAthletes() {
-
-async function loadAthletes() {
     try {
+        const response = await fetch(`${API_URL}/api/athletes`);
 
         if (!response.ok) {
             throw new Error("Failed to load athletes");
@@ -24,7 +23,6 @@ async function loadAthletes() {
     }
 }
 
-
 function displayAthletes(athletes) {
 
     const athletesList = document.getElementById("athletes-list");
@@ -37,7 +35,6 @@ function displayAthletes(athletes) {
 
         card.className =
             "bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition";
-
 
         card.innerHTML = `
             <h2 class="text-2xl font-bold mb-2">
@@ -58,19 +55,12 @@ function displayAthletes(athletes) {
             </button>
         `;
 
-
         athletesList.appendChild(card);
-
     });
-
 }
-
 
 function startTest(athleteId) {
-
     window.location.href = `test.html?athlete=${athleteId}`;
-
 }
-
 
 loadAthletes();
