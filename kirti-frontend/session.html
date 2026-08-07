@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KIRTI - Live Session</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-gray-800 py-4 shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-green-400">KIRTI Live Session</h1>
+      <a href="index.html" class="text-gray-300 hover:text-green-400">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Left Side: Camera Feed -->
+      <div class="lg:col-span-2">
+        <div class="bg-gray-800 rounded-xl overflow-hidden">
+          <img id="camera-feed" 
+               src="" 
+               alt="Camera Feed" 
+               class="w-full h-[480px] object-cover bg-black">
+          <div class="p-4 text-center text-gray-400" id="camera-status">
+            Camera is off
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side: Stats + Controls -->
+      <div class="space-y-6">
+        
+        <!-- Current Test Info -->
+        <div class="bg-gray-800 rounded-xl p-6">
+          <h2 class="text-xl font-semibold mb-2">Current Test</h2>
+          <p id="test-type" class="text-green-400 text-lg">Not started</p>
+          <p id="athlete-name" class="text-gray-400 mt-1">No athlete selected</p>
+        </div>
+
+        <!-- Live Stats -->
+        <div class="bg-gray-800 rounded-xl p-6">
+          <h2 class="text-xl font-semibold mb-4">Live Stats</h2>
+          
+          <div class="text-center">
+            <p class="text-gray-400 text-sm">Score</p>
+            <p id="live-score" class="text-5xl font-bold text-green-400 mt-2">0</p>
+            <p id="score-unit" class="text-gray-400 mt-1">reps</p>
+          </div>
+
+          <div class="mt-6 text-center">
+            <p class="text-gray-400 text-sm">Status</p>
+            <p id="session-status" class="text-lg mt-1">Ready</p>
+          </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="bg-gray-800 rounded-xl p-6 space-y-3">
+          <button id="btn-start" class="w-full bg-green-500 hover:bg-green-600 text-black font-semibold py-3 rounded-lg">
+            Start Session
+          </button>
+          <button id="btn-reset" class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 rounded-lg">
+            Reset
+          </button>
+          <button id="btn-stop" class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg">
+            Stop Session
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
