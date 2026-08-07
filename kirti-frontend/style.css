@@ -1,0 +1,92 @@
+.results-header {
+    background: #2563eb;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.results-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+
+.results-header p {
+    font-size: 16px;
+}
+
+
+/* Results table card */
+
+.results-card {
+
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+
+}
+
+
+/* Table */
+
+.results-table {
+
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+
+.results-table th {
+
+    background-color: #1e40af;
+    color: white;
+    padding: 15px;
+    text-align: left;
+
+}
+
+
+.results-table td {
+
+    padding: 14px;
+    border-bottom: 1px solid #ddd;
+
+}
+
+
+/* Row hover */
+
+.results-table tbody tr:hover {
+
+    background-color: #eff6ff;
+
+}
+
+
+/* Status buttons */
+
+.status-pass {
+
+    background-color: #22c55e;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+
+}
+
+
+.status-fail {
+
+    background-color: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+
+}
