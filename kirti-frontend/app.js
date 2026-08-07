@@ -17,14 +17,47 @@ const btnStart = document.getElementById("btn-start");
 const btnReset = document.getElementById("btn-reset");
 const btnStop = document.getElementById("btn-stop");
 
-// For now we hardcode these (later we will get from previous page)
-let currentTest = "situp";        // or "vertical_jump"
-let currentAthlete = "LeBron James";
+const params = new URLSearchParams(window.location.search);
 
-// Update UI with current test info
-testTypeText.textContent = currentTest === "situp" ? "Sit-ups" : "Vertical Jump";
-athleteNameText.textContent = currentAthlete;
-scoreUnit.textContent = currentTest === "situp" ? "reps" : "cm";
+let currentTest = params.get("test") || "situp";
+let athleteId = params.get("athlete");
+
+let currentAthlete = "Unknown Athlete";
+
+// Update test information
+testTypeText.textContent =
+  currentTest === "situp" ? "Sit-ups" : "Vertical Jump";
+
+scoreUnit.textContent =
+  currentTest === "situp" ? "reps" : "cm";
+
+// Load the actual athlete name
+async function loadAthlete() {
+  try {
+    const response = await fetch(`${API_BASE}/api/athletes`);
+
+    if (!response.ok) {
+      throw new Error("Failed to load athletes");
+    }
+
+    const athletes = await response.json();
+
+    const athlete = athletes.find(a => a.id === athleteId);
+
+    if (athlete) {
+      currentAthlete = athlete.name;
+      athleteNameText.textContent = athlete.name;
+    } else {
+      athleteNameText.textContent = "Unknown Athlete";
+    }
+
+  } catch (error) {
+    console.error("Error loading athlete:", error);
+    athleteNameText.textContent = "Unable to load athlete";
+  }
+}
+
+loadAthlete();
 
 // ======================
 // Button Events

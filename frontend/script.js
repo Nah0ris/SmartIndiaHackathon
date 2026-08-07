@@ -1,5 +1,6 @@
-const API_URL = "localhost/docs";
+const API_URL = "http://localhost:8000";
 
+async function loadAthletes() {
 
 async function loadAthletes() {
     try {
